@@ -7,3 +7,4 @@ branches:
 osx_image: xcode6.4
 xcode_sdk: macosx10.10
 xcode_workspace: Remote for Spotify.xcworkspace
+xcode_scheme: Remote for SpotifyTests
