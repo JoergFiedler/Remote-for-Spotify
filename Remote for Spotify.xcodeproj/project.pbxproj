@@ -10,6 +10,7 @@
 		31DD05EDB49D217C73441058 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DD055FD4E12DF83AFE469E /* Track.swift */; };
 		31DD067AFC06E919B53AB085 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DD0B48CF96F735E437E30F /* AppDelegate.swift */; };
 		31DD07BCD7DCC8D17DB85733 /* Remote_for_SpotifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DD01CEA888D88BAB5FA5EE /* Remote_for_SpotifyTests.swift */; };
+		31DD0DE964E2F98FFA032D53 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 31DD0921F8208F80E86084DD /* README.md */; };
 		31DD0DEA9E28BCCE1E0367E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31DD0979DEE77D61648EBACF /* Images.xcassets */; };
 		31DD0E86BC7E88F7255DC93B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31DD00A2B6DE3987856A1B22 /* MainMenu.xib */; };
 		31DD0F3CBFE730AAF933FD7E /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DD09191D31CBFE4AF6CE19 /* PlayerState.swift */; };
@@ -39,6 +40,7 @@
 		31DD055FD4E12DF83AFE469E /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		31DD07674BECC4B93319E123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		31DD09191D31CBFE4AF6CE19 /* PlayerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
+		31DD0921F8208F80E86084DD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		31DD0979DEE77D61648EBACF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		31DD0B0DD4BE29EEDD427BB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		31DD0B48CF96F735E437E30F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				31DD0B48CF96F735E437E30F /* AppDelegate.swift */,
 				52C54F8E1B9CE84D0067E81E /* EventMonitor.swift */,
 				31DD00A2B6DE3987856A1B22 /* MainMenu.xib */,
+				31DD0921F8208F80E86084DD /* README.md */,
 			);
 			path = "Remote for Spotify";
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				52C54F941B9CE84E0067E81E /* SpotifyLocalClient.swift in Sources */,
 				31DD0F3CBFE730AAF933FD7E /* PlayerState.swift in Sources */,
 				31DD05EDB49D217C73441058 /* Track.swift in Sources */,
+				31DD0DE964E2F98FFA032D53 /* README.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
