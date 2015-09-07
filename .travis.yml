@@ -1,0 +1,12 @@
+language: objective-c
+
+branches:
+  only:
+  - master
+
+osx_image: xcode6.4
+xcode_sdk: macosx10.10
+xcode_workspace: Remote for Spotify.xcworkspace
+
+script:
+- xcodebuild clean build test -project Swifternalization.xcodeproj -scheme SwifternalizationTests
