@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="TrackInfoViewController" customModule="Remote_for_Spotify" customModuleProvider="target">
+            <connections>
+                <outlet property="albumImage" destination="tkQ-BN-Tgg" id="xTJ-fa-zOq"/>
+                <outlet property="albumName" destination="shu-GR-tuK" id="XdP-CP-5px"/>
+                <outlet property="artistName" destination="jyR-Je-TY7" id="7Pj-DM-1jb"/>
+                <outlet property="backwardButton" destination="eFC-aq-WbZ" id="FPn-KZ-7Pa"/>
+                <outlet property="forwardButton" destination="CW0-xt-04D" id="8Po-7m-WK7"/>
+                <outlet property="playPauseButton" destination="mFN-8S-7gO" id="fPw-q0-Xv1"/>
+                <outlet property="repeatButton" destination="lRl-K8-WI8" id="bIh-dE-X4S"/>
+                <outlet property="shuffleButton" destination="vS2-JF-cby" id="J9y-HX-1tc"/>
+                <outlet property="trackName" destination="AUH-iy-JWj" id="Ubc-3U-5mJ"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="Zij-4v-mFF"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="5" width="290" height="471"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="shu-GR-tuK">
+                    <rect key="frame" x="18" y="61" width="254" height="14"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingMiddle" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" alignment="center" placeholderString="Unknown Album" usesSingleLineMode="YES" id="ubG-re-AK0">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jyR-Je-TY7">
+                    <rect key="frame" x="18" y="20" width="254" height="14"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingMiddle" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" alignment="center" placeholderString="Unknown Artist" usesSingleLineMode="YES" id="vPO-Ah-sTS">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AUH-iy-JWj">
+                    <rect key="frame" x="18" y="102" width="254" height="14"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingMiddle" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" alignment="center" placeholderString="Unknow Name" usesSingleLineMode="YES" id="qhN-kU-RoO">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tkQ-BN-Tgg">
+                    <rect key="frame" x="20" y="201" width="250" height="250"/>
+                    <animations/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="6z1-1E-9kQ"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="23q-P3-AUZ">
+                    <rect key="frame" x="18" y="124" width="254" height="11"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" alignment="center" title="Track" id="aCt-iP-4uP">
+                        <font key="font" metaFont="miniSystemBold"/>
+                        <color key="textColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lMR-En-dGf">
+                    <rect key="frame" x="18" y="83" width="254" height="11"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" alignment="center" title="Album" id="P5F-Xa-7Cx">
+                        <font key="font" metaFont="miniSystemBold"/>
+                        <color key="textColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m4J-IG-qML">
+                    <rect key="frame" x="18" y="42" width="254" height="11"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" alignment="center" title="Artist" id="7gc-gz-z45">
+                        <font key="font" metaFont="miniSystemBold"/>
+                        <color key="textColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <box verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="vUM-yw-8Q2">
+                    <rect key="frame" x="0.0" y="190" width="290" height="5"/>
+                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <font key="titleFont" metaFont="system"/>
+                </box>
+                <box verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="svj-Sb-DN4">
+                    <rect key="frame" x="0.0" y="141" width="290" height="5"/>
+                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <font key="titleFont" metaFont="system"/>
+                </box>
+                <button toolTip="Backward ⌘B" focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eFC-aq-WbZ">
+                    <rect key="frame" x="41" y="152" width="32" height="32"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="SkipToStart" imagePosition="only" alignment="center" focusRingType="none" imageScaling="axesIndependently" inset="2" id="GUH-r7-BhK">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent">b</string>
+                        <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="backward:" target="-2" id="IGb-fm-NXp"/>
+                    </connections>
+                </button>
+                <button toolTip="Forward ⌘F" focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CW0-xt-04D">
+                    <rect key="frame" x="121" y="152" width="32" height="32"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="SkipToEnd" imagePosition="only" alignment="center" focusRingType="none" imageScaling="axesIndependently" inset="2" id="MfR-Ma-Oud">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent">f</string>
+                        <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="forward:" target="-2" id="IRQ-ez-DUi"/>
+                    </connections>
+                </button>
+                <button toolTip="Repeat ⌘R" focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lRl-K8-WI8">
+                    <rect key="frame" x="178" y="152" width="32" height="32"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="Repeat" imagePosition="only" alignment="center" focusRingType="none" imageScaling="axesIndependently" inset="2" id="srX-HT-uPn">
+                        <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent">r</string>
+                        <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="toggleRepeat:" target="-2" id="eds-TR-w25"/>
+                    </connections>
+                </button>
+                <button toolTip="Shuffle ⌘S" focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vS2-JF-cby">
+                    <rect key="frame" x="218" y="152" width="32" height="32"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="Shuffle" imagePosition="only" alignment="center" focusRingType="none" imageScaling="axesIndependently" inset="2" id="JJL-Zl-dGm">
+                        <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent">s</string>
+                        <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="toggleShuffle:" target="-2" id="DFX-vJ-OcF"/>
+                    </connections>
+                </button>
+                <button toolTip="Play/Pause ⌘P" focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mFN-8S-7gO">
+                    <rect key="frame" x="81" y="152" width="32" height="32"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="Play" imagePosition="only" alignment="center" alternateImage="Pause" focusRingType="none" imageScaling="axesIndependently" inset="2" id="JxU-tE-AxD">
+                        <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent">p</string>
+                        <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="playPause:" target="-2" id="CMh-Qv-CAa"/>
+                    </connections>
+                </button>
+            </subviews>
+            <point key="canvasLocation" x="318" y="271.5"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="Pause" width="100" height="100"/>
+        <image name="Play" width="100" height="100"/>
+        <image name="Repeat" width="100" height="100"/>
+        <image name="Shuffle" width="100" height="100"/>
+        <image name="SkipToEnd" width="100" height="100"/>
+        <image name="SkipToStart" width="100" height="100"/>
+    </resources>
+</document>
