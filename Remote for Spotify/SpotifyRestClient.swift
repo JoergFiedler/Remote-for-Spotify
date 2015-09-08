@@ -17,9 +17,9 @@ class SpotifyRestClient {
     session = NSURLSession.sharedSession()
   }
 
-  func getTrack(spotifyId: String, sucessHandler: (Track) -> Void) {
+  func getTrack(spotifyId: String, successHandler: (Track) -> Void) {
     let id = spotifyId.componentsSeparatedByString(":")[2]
-    httpGet(id, successHandler: sucessHandler)
+    httpGet(id, successHandler: successHandler)
   }
 
   private func httpGet(id: String, successHandler: (Track) -> Void) {

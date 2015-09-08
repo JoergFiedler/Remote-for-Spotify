@@ -10,8 +10,8 @@ import Cocoa
 
 class TrackInfoViewController: NSViewController {
 
-  let spotifyRest:    SpotifyRestClient               = SpotifyRestClient.instance
-  let spotifyLocal:   SpotifyLocalClient              = SpotifyLocalClient()
+  let spotifyRest: SpotifyRestClient = SpotifyRestClient.instance
+  let spotifyLocal: SpotifyLocalClient = SpotifyLocalClient()
   let centerReceiver: NSDistributedNotificationCenter = NSDistributedNotificationCenter.defaultCenter()
 
   @IBAction func playPause(sender: AnyObject?) {
@@ -52,7 +52,7 @@ class TrackInfoViewController: NSViewController {
   private func retrievePlayerState() {
     var playerState = spotifyLocal.playerState()
     if let id = playerState.currentTrackId {
-      spotifyRest.getTrack(id, sucessHandler: { (track: Track) in self.updateView(playerState, track: track) })
+      spotifyRest.getTrack(id, successHandler: { (track: Track) in self.updateView(playerState, track: track) })
     }
   }
 
@@ -66,13 +66,13 @@ class TrackInfoViewController: NSViewController {
     shuffleButton.state = playerState.isShuffling ? NSOnState : NSOffState
   }
 
-  @IBOutlet var trackName:       NSTextField!
-  @IBOutlet var albumName:       NSTextField!
-  @IBOutlet var artistName:      NSTextField!
-  @IBOutlet var albumImage:      NSImageView!
+  @IBOutlet var trackName: NSTextField!
+  @IBOutlet var albumName: NSTextField!
+  @IBOutlet var artistName: NSTextField!
+  @IBOutlet var albumImage: NSImageView!
   @IBOutlet var playPauseButton: NSButton!
-  @IBOutlet var forwardButton:   NSButton!
-  @IBOutlet var backwardButton:  NSButton!
-  @IBOutlet var shuffleButton:   NSButton!
-  @IBOutlet var repeatButton:    NSButton!
+  @IBOutlet var forwardButton: NSButton!
+  @IBOutlet var backwardButton: NSButton!
+  @IBOutlet var shuffleButton: NSButton!
+  @IBOutlet var repeatButton: NSButton!
 }
