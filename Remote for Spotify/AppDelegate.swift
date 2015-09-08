@@ -12,10 +12,13 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
   let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-2)
-  let centerReceiver: NSDistributedNotificationCenter = NSDistributedNotificationCenter.defaultCenter()
-  let userNotificationCenter:NSUserNotificationCenter = NSUserNotificationCenter.defaultUserNotificationCenter()
+  let notificationCenterMonitor: NotificationCenterMonitor
   let popover = NSPopover()
   var eventMonitor: EventMonitor?
+
+  override init() {
+    self.notificationCenterMonitor = NotificationCenterMonitor()
+  }
 
   func closePopover(sender: AnyObject) {
     eventMonitor?.stop()
@@ -37,22 +40,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
   }
 
-  @objc func sendUserNotification(notification: NSUserNotification) {
-    var spotifyRest = SpotifyRestClient.instance
-    if let id:String = notification.userInfo?["Track ID"] as? String {
-      spotifyRest.getTrack(id, successHandler: {
-        (track: Track) in
-        var notification = NSUserNotification()
-        notification.title = track.name
-        notification.informativeText = "\(track.artistName) - \(track.albumName)"
-        notification.contentImage = NSImage(contentsOfURL: NSURL(string: track.albumImageUrl)!)
-        notification.hasActionButton = false
-        self.userNotificationCenter.deliverNotification(notification)
-      })
-    }
-  }
-
-
   func applicationDidFinishLaunching(aNotification: NSNotification) {
     if let button = statusItem.button {
       button.image = NSImage(named: "StatusBarButtonImage")
@@ -63,13 +50,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     eventMonitor = EventMonitor(
     mask: NSEventMask.LeftMouseDownMask | NSEventMask.RightMouseDownMask | NSEventMask.KeyDownMask,
     handler: { (event) -> () in self.closePopover(event!) })
-    centerReceiver.addObserver(self,
-                               selector: "sendUserNotification:",
-                               name: "com.spotify.client.PlaybackStateChanged",
-                               object: nil)
   }
 
   func applicationWillTerminate(aNotification: NSNotification) {
-    centerReceiver.removeObserver(self)
   }
 }

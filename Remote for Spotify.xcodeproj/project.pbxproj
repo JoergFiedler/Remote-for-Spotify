@@ -14,7 +14,9 @@
 		31DD0DEA9E28BCCE1E0367E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31DD0979DEE77D61648EBACF /* Images.xcassets */; };
 		31DD0E86BC7E88F7255DC93B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31DD00A2B6DE3987856A1B22 /* MainMenu.xib */; };
 		31DD0F3CBFE730AAF933FD7E /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DD09191D31CBFE4AF6CE19 /* PlayerState.swift */; };
-		52C54F931B9CE84E0067E81E /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C54F8E1B9CE84D0067E81E /* EventMonitor.swift */; };
+		5228F9291B9F44E200ECD2A6 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5228F9271B9F44E200ECD2A6 /* EventMonitor.swift */; };
+		5228F92A1B9F44E200ECD2A6 /* NotificationCenterMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5228F9281B9F44E200ECD2A6 /* NotificationCenterMonitor.swift */; };
+		5229C4D41B9EC2DA00C2FDC2 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5229C4D31B9EC2DA00C2FDC2 /* View.xib */; };
 		52C54F941B9CE84E0067E81E /* SpotifyLocalClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C54F8F1B9CE84E0067E81E /* SpotifyLocalClient.swift */; };
 		52C54F951B9CE84E0067E81E /* SpotifyRestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C54F901B9CE84E0067E81E /* SpotifyRestClient.swift */; };
 		52C54F971B9CE84E0067E81E /* TrackInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C54F921B9CE84E0067E81E /* TrackInfoViewController.swift */; };
@@ -45,7 +47,9 @@
 		31DD0B0DD4BE29EEDD427BB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		31DD0B48CF96F735E437E30F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31DD0F79162976373F16AA42 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = file.yml; path = .travis.yml; sourceTree = "<group>"; };
-		52C54F8E1B9CE84D0067E81E /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		5228F9271B9F44E200ECD2A6 /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		5228F9281B9F44E200ECD2A6 /* NotificationCenterMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterMonitor.swift; sourceTree = "<group>"; };
+		5229C4D31B9EC2DA00C2FDC2 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		52C54F8F1B9CE84E0067E81E /* SpotifyLocalClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyLocalClient.swift; sourceTree = "<group>"; };
 		52C54F901B9CE84E0067E81E /* SpotifyRestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyRestClient.swift; sourceTree = "<group>"; };
 		52C54F921B9CE84E0067E81E /* TrackInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackInfoViewController.swift; sourceTree = "<group>"; };
@@ -97,17 +101,27 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		31DD0406C3B4D7487A05FE63 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				5228F9271B9F44E200ECD2A6 /* EventMonitor.swift */,
+				5228F9281B9F44E200ECD2A6 /* NotificationCenterMonitor.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
 		31DD07BE4B2671C496B2B059 /* Remote for Spotify */ = {
 			isa = PBXGroup;
 			children = (
-				31DD0F182BE702C2EC4872F3 /* Supporting Files */,
-				31DD0979DEE77D61648EBACF /* Images.xcassets */,
-				52C54F9E1B9CEAC60067E81E /* SwiftyJSON */,
 				52C54F9A1B9CE93C0067E81E /* Spotify */,
+				31DD0F182BE702C2EC4872F3 /* Supporting Files */,
+				52C54F9E1B9CEAC60067E81E /* SwiftyJSON */,
+				31DD0406C3B4D7487A05FE63 /* System */,
 				52C54F9B1B9CE9540067E81E /* Track Popover */,
 				31DD0B48CF96F735E437E30F /* AppDelegate.swift */,
-				52C54F8E1B9CE84D0067E81E /* EventMonitor.swift */,
+				31DD0979DEE77D61648EBACF /* Images.xcassets */,
 				31DD00A2B6DE3987856A1B22 /* MainMenu.xib */,
+				5229C4D31B9EC2DA00C2FDC2 /* View.xib */,
 			);
 			path = "Remote for Spotify";
 			sourceTree = "<group>";
@@ -229,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52C54F991B9CE8DC0067E81E /* TrackInfoView.xib in Resources */,
+				5229C4D41B9EC2DA00C2FDC2 /* View.xib in Resources */,
 				31DD0DEA9E28BCCE1E0367E8 /* Images.xcassets in Resources */,
 				31DD0E86BC7E88F7255DC93B /* MainMenu.xib in Resources */,
 				31DD0C8BFADC615379E2F7E0 /* .travis.yml in Resources */,
@@ -250,8 +265,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				31DD067AFC06E919B53AB085 /* AppDelegate.swift in Sources */,
+				5228F9291B9F44E200ECD2A6 /* EventMonitor.swift in Sources */,
+				5228F92A1B9F44E200ECD2A6 /* NotificationCenterMonitor.swift in Sources */,
 				52C54F951B9CE84E0067E81E /* SpotifyRestClient.swift in Sources */,
-				52C54F931B9CE84E0067E81E /* EventMonitor.swift in Sources */,
 				52C54F971B9CE84E0067E81E /* TrackInfoViewController.swift in Sources */,
 				52C54F9D1B9CEA9A0067E81E /* SwiftyJSON.swift in Sources */,
 				52C54F941B9CE84E0067E81E /* SpotifyLocalClient.swift in Sources */,
