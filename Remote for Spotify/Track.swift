@@ -10,8 +10,8 @@ import Foundation
 import Cocoa
 
 struct Track {
-    var name: String
-    var albumName: String
-    var artistName: String
-    var albumImageUrl: String
+  var name:          String
+  var albumName:     String
+  var artistName:    String
+  var albumImageUrl: String
 }

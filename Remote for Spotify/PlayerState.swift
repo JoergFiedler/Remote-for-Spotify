@@ -9,9 +9,9 @@
 import Foundation
 
 struct PlayerState {
-    var isRunning: Bool
-    var isPlaying: Bool
-    var isShuffling: Bool
-    var isRepeating: Bool
-    var currentTrackId: String?
+  var isRunning:      Bool
+  var isPlaying:      Bool
+  var isShuffling:    Bool
+  var isRepeating:    Bool
+  var currentTrackId: String?
 }
