@@ -10,8 +10,8 @@ import Cocoa
 
 class TrackInfoViewController: NSViewController {
 
+    let spotifyRest: SpotifyRestClient = SpotifyRestClient.instance
     let spotifyLocal: SpotifyLocalClient = SpotifyLocalClient()
-    let spotifyRest: SpotifyRestClient = SpotifyRestClient()
     let centerReceiver: NSDistributedNotificationCenter = NSDistributedNotificationCenter.defaultCenter()
 
     @IBAction func playPause(sender: AnyObject?) {
@@ -36,7 +36,7 @@ class TrackInfoViewController: NSViewController {
 
     override func viewWillAppear() {
         super.viewWillAppear()
-        centerReceiver.addObserver(self, selector:"playbackStateChanged:", name: "com.spotify.client.PlaybackStateChanged", object: nil)
+        centerReceiver.addObserver(self, selector: "playbackStateChanged:", name: "com.spotify.client.PlaybackStateChanged", object: nil)
         retrievePlayerState()
     }
 
@@ -45,7 +45,7 @@ class TrackInfoViewController: NSViewController {
         super.viewWillDisappear()
     }
 
-    @objc func playbackStateChanged(notification:NSNotification) {
+    @objc func playbackStateChanged(notification: NSNotification) {
         retrievePlayerState()
     }
 

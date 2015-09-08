@@ -10,24 +10,29 @@ import Foundation
 
 class SpotifyRestClient {
 
-    let session = NSURLSession.sharedSession()
+  static let instance: SpotifyRestClient = SpotifyRestClient()
+  let session: NSURLSession!
 
-    func getTrack(spotifyId: String, sucessHandler: (Track) -> Void) {
-        let id = spotifyId.componentsSeparatedByString(":")[2]
-        httpGet(id, successHandler: sucessHandler)
-    }
+  private init() {
+    session = NSURLSession.sharedSession()
+  }
 
-    private func httpGet(id: String, successHandler: (Track) -> Void) {
-        var url: NSURL = NSURL(string: "https://api.spotify.com/v1/tracks/\(id)")!
-        var task: NSURLSessionDataTask = session.dataTaskWithURL(url, completionHandler: {
-            (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
-            let trackAsJson = JSON(data: data)
-            successHandler(Track(name: trackAsJson["name"].string ?? "",
-                    albumName: trackAsJson["album"]["name"].string ?? "",
-                    artistName: trackAsJson["artists"][0]["name"].string ?? "" ,
-                    albumImageUrl: trackAsJson["album"]["images"][0]["url"].string ?? ""))
-        })
+  func getTrack(spotifyId: String, sucessHandler: (Track) -> Void) {
+    let id = spotifyId.componentsSeparatedByString(":")[2]
+    httpGet(id, successHandler: sucessHandler)
+  }
 
-        task.resume()
-    }
+  private func httpGet(id: String, successHandler: (Track) -> Void) {
+    var url: NSURL = NSURL(string: "https://api.spotify.com/v1/tracks/\(id)")!
+    var task: NSURLSessionDataTask = session.dataTaskWithURL(url, completionHandler: {
+      (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
+      let trackAsJson = JSON(data: data)
+      successHandler(Track(name: trackAsJson["name"].string ?? "",
+                           albumName: trackAsJson["album"]["name"].string ?? "",
+                           artistName: trackAsJson["artists"][0]["name"].string ?? "",
+                           albumImageUrl: trackAsJson["album"]["images"][0]["url"].string ?? ""))
+    })
+
+    task.resume()
+  }
 }
