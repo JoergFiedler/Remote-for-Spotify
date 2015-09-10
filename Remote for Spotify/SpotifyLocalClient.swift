@@ -12,60 +12,62 @@ class SpotifyLocalClient {
 
   let isRunningScript = "tell application \"System Events\" to (name of processes) contains \"Spotify\""
 
-  func playerState() -> PlayerState {
+  func retrievePlayerState() -> PlayerState {
     let isRunning, isPlaying, isRepeating, isShuffling: Bool
 
-    isRunning = isEqual(executeScript(isRunningScript), expect: "true")
-    isRepeating = isEqual(executeScript(createScriptForCommand("get repeating")), expect: "true")
-    isShuffling = isEqual(executeScript(createScriptForCommand("get shuffling")), expect: "true")
-    isPlaying = isEqual(executeScript(createScriptForCommand("get player state")), expect: "kPSP")
+    isRunning = isEqual(runScript(isRunningScript), to: "true")
+    isRepeating = isEqual(executeCommand("get repeating"), to: "true")
+    isShuffling = isEqual(executeCommand("get shuffling"), to: "true")
+    isPlaying = isEqual(executeCommand("get player state"), to: "kPSP")
 
     return PlayerState(isRunning: isRunning,
                        isPlaying: isPlaying,
                        isShuffling: isShuffling,
                        isRepeating: isRepeating,
-                       currentTrackId: getCurrentTrackId())
+                       currentTrackId: getIdOfCurrentTrack())
   }
 
   func playPause() {
-    executeScript(createScriptForCommand("playpause"))
+    executeCommand("playpause")
   }
 
   func backward() {
-    executeScript(createScriptForCommand("previous track"))
+    executeCommand("previous track")
   }
 
   func forward() {
-    executeScript(createScriptForCommand("next track"))
+    executeCommand("next track")
   }
 
   func shuffle(value: Bool) {
-    executeScript(createScriptForCommand("set shuffling to \(value)"))
+    executeCommand("set shuffling to \(value)")
   }
 
   func repeat(value: Bool) {
-    executeScript(createScriptForCommand("set repeating to \(value)"))
+    executeCommand("set repeating to \(value)")
   }
 
-  private func getCurrentTrackId() -> String? {
-    return executeScript(createScriptForCommand("get id of current track as string"))
+  private func getIdOfCurrentTrack() -> String? {
+    return executeCommand("get id of current track as string")
   }
 
-  private func executeScript(scriptSource: String) -> String? {
-    var error:  NSDictionary?
-    let script: NSAppleScript! = NSAppleScript(
-    source: scriptSource
-    )
+  private func executeCommand(command: String) -> String? {
+    return runScript(createScriptFor(command))
+  }
+
+  private func runScript(source: String) -> String? {
+    var error: NSDictionary?
+    let script: NSAppleScript! = NSAppleScript(source: source)
 
     return script?.executeAndReturnError(&error)?.stringValue
   }
 
-  private func createScriptForCommand(command: String) -> String {
+  private func createScriptFor(command: String) -> String {
     return "tell application \"Spotify\" to \(command)"
   }
 
-  private func isEqual(value: String?, expect: String) -> Bool {
-    let result = value?.compare(expect)
+  private func isEqual(value: String?, to: String) -> Bool {
+    let result = value?.compare(to)
     return result == NSComparisonResult.OrderedSame
   }
 }

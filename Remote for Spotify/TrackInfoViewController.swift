@@ -50,7 +50,7 @@ class TrackInfoViewController: NSViewController {
   }
 
   private func retrievePlayerState() {
-    var playerState = spotifyLocal.playerState()
+    var playerState = spotifyLocal.retrievePlayerState()
     if let id = playerState.currentTrackId {
       spotifyRest.getTrack(id, successHandler: { (track: Track) in self.updateView(playerState, track: track) })
     }

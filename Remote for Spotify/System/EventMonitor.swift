@@ -11,7 +11,7 @@ import Cocoa
 
 public class EventMonitor {
   private var monitor: AnyObject?
-  private let mask:    NSEventMask
+  private let mask: NSEventMask
   private let handler: NSEvent? -> ()
 
   init(mask: NSEventMask, handler: NSEvent? -> ()) {

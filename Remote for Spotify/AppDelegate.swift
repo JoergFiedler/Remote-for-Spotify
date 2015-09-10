@@ -7,13 +7,14 @@
 //
 
 import Cocoa
+import AppKit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
   let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-2)
   let notificationCenterMonitor: NotificationCenterMonitor
-  let popover = NSPopover()
+  let popover: NSPopover = NSPopover()
   var eventMonitor: EventMonitor?
 
   override init() {

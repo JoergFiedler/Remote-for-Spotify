@@ -26,16 +26,16 @@ class NotificationCenterMonitor {
 
   @objc
   func sendUserNotification(notification: NSUserNotification) {
-    if let id: String = extractTrackId(notification) {
+    if let id: String = extractTrackIdFrom(notification) {
       self.spotifyRestClient.getTrack(id, successHandler: {
         (track: Track) in
-        self.userNotificationCenter.deliverNotification(self.createUserNotification(track))
+        self.userNotificationCenter.deliverNotification(self.createUserNotificationFrom(track))
       })
     }
   }
 
   private
-  func createUserNotification(track: Track) -> NSUserNotification {
+  func createUserNotificationFrom(track: Track) -> NSUserNotification {
     let notification = NSUserNotification()
     notification.title = track.name
     notification.informativeText = "\(track.artistName) - \(track.albumName)"
@@ -45,7 +45,7 @@ class NotificationCenterMonitor {
   }
 
   private
-  func extractTrackId(notification: NSUserNotification) -> String? {
+  func extractTrackIdFrom(notification: NSUserNotification) -> String? {
     return notification.userInfo?["Track ID"] as? String
   }
 
