@@ -15,7 +15,7 @@
                 <outlet property="repeatButton" destination="lRl-K8-WI8" id="bIh-dE-X4S"/>
                 <outlet property="shuffleButton" destination="vS2-JF-cby" id="J9y-HX-1tc"/>
                 <outlet property="trackName" destination="AUH-iy-JWj" id="Ubc-3U-5mJ"/>
-                <outlet property="view" destination="Hz6-mo-xeY" id="Zij-4v-mFF"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="OH4-ad-Lp1"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -48,11 +48,6 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tkQ-BN-Tgg">
-                    <rect key="frame" x="20" y="201" width="250" height="250"/>
-                    <animations/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="6z1-1E-9kQ"/>
-                </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="23q-P3-AUZ">
                     <rect key="frame" x="18" y="124" width="254" height="11"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" alignment="center" title="Track" id="aCt-iP-4uP">
@@ -149,6 +144,11 @@
                         <action selector="playPause:" target="-2" id="CMh-Qv-CAa"/>
                     </connections>
                 </button>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tkQ-BN-Tgg">
+                    <rect key="frame" x="17" y="198" width="256" height="256"/>
+                    <animations/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" imageFrameStyle="groove" id="6z1-1E-9kQ"/>
+                </imageView>
             </subviews>
             <point key="canvasLocation" x="318" y="271.5"/>
         </customView>

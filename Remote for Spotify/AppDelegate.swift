@@ -15,10 +15,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-2)
   let notificationCenterMonitor: NotificationCenterMonitor
   let popover: NSPopover = NSPopover()
+  let controller:TrackInfoViewController?
   var eventMonitor: EventMonitor?
 
   override init() {
     self.notificationCenterMonitor = NotificationCenterMonitor()
+    self.controller = TrackInfoViewController(nibName: "TrackInfoView", bundle: nil)!
   }
 
   func closePopover(sender: AnyObject) {
@@ -40,17 +42,31 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       openPopover(sender)
     }
   }
+    
+    func help(sender:AnyObject?) {
+        println(sender)
+    }
+
+  func createMenu(controller: NSViewController) {
+    let menu = NSMenu()
+
+    let item: NSMenuItem = NSMenuItem(title: "Print Quote",
+                                      action:Selector("help:"),
+                                      keyEquivalent: "P")
+    item.view = controller.view
+    menu.addItem(item)
+    statusItem.menu = menu
+  }
 
   func applicationDidFinishLaunching(aNotification: NSNotification) {
     if let button = statusItem.button {
       button.image = NSImage(named: "StatusBarButtonImage")
-      button.action = Selector("togglePopover:")
     }
 
-    popover.contentViewController = TrackInfoViewController(nibName: "TrackInfoView", bundle: nil)
-    eventMonitor = EventMonitor(
-    mask: NSEventMask.LeftMouseDownMask | NSEventMask.RightMouseDownMask | NSEventMask.KeyDownMask,
-    handler: { (event) -> () in self.closePopover(event!) })
+    
+    createMenu(self.controller!)
+    eventMonitor = EventMonitor(mask: NSEventMask.LeftMouseDownMask | NSEventMask.RightMouseDownMask,
+                                handler: { (event) -> () in self.closePopover(event!) })
   }
 
   func applicationWillTerminate(aNotification: NSNotification) {
