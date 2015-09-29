@@ -43,7 +43,7 @@ class SpotifyLocalClient {
     executeCommand("set shuffling to \(value)")
   }
 
-  func repeat(value: Bool) {
+  func `repeat`(value: Bool) {
     executeCommand("set repeating to \(value)")
   }
 
@@ -59,7 +59,7 @@ class SpotifyLocalClient {
     var error: NSDictionary?
     let script: NSAppleScript! = NSAppleScript(source: source)
 
-    return script?.executeAndReturnError(&error)?.stringValue
+    return script?.executeAndReturnError(&error).stringValue
   }
 
   private func createScriptFor(command: String) -> String {

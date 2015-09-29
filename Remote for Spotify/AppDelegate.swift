@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
   func openPopover(sender: AnyObject) {
     if let button = statusItem.button {
-      popover.showRelativeToRect(button.bounds, ofView: button, preferredEdge: NSMinYEdge)
+      popover.showRelativeToRect(button.bounds, ofView: button, preferredEdge: NSRectEdge.MinY)
       eventMonitor?.start()
     }
   }
@@ -44,7 +44,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   }
     
     func help(sender:AnyObject?) {
-        println(sender)
+        print(sender)
     }
 
   func createMenu(controller: NSViewController) {
@@ -65,7 +65,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     
     createMenu(self.controller!)
-    eventMonitor = EventMonitor(mask: NSEventMask.LeftMouseDownMask | NSEventMask.RightMouseDownMask,
+    eventMonitor = EventMonitor(mask: [NSEventMask.LeftMouseDownMask, NSEventMask.RightMouseDownMask],
                                 handler: { (event) -> () in self.closePopover(event!) })
   }
 

@@ -31,12 +31,15 @@ class TrackInfoViewController: NSViewController {
   }
 
   @IBAction func toggleRepeat(sender: AnyObject?) {
-    spotifyLocal.repeat((sender as! NSButton).state == NSOnState)
+    spotifyLocal.`repeat`((sender as! NSButton).state == NSOnState)
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    centerReceiver.addObserver(self, selector: "playbackStateChanged:", name: "com.spotify.client.PlaybackStateChanged", object: nil)
+    centerReceiver.addObserver(self,
+        selector: "playbackStateChanged:",
+        name: "com.spotify.client.PlaybackStateChanged",
+        object: nil)
     retrievePlayerState()
   }
 
@@ -45,7 +48,7 @@ class TrackInfoViewController: NSViewController {
   }
 
   private func retrievePlayerState() {
-    var playerState = spotifyLocal.retrievePlayerState()
+    let playerState = spotifyLocal.retrievePlayerState()
     if let id = playerState.currentTrackId {
       spotifyRest.getTrack(id, successHandler: { (track: Track) in
         self.updateView(playerState, track: track)
